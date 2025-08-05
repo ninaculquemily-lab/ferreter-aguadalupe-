@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferretería Guadalupe-Cajamarca</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul-oscuro: #174a7e;
+      --azul-medio: #2986cc;
+      --azul-claro: #a3d8f4;
+      --azul-brillante: #3ec6ff;
+      --blanco: #f6faff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(135deg, var(--azul-claro) 0%, var(--azul-medio) 100%);
+      color: var(--azul-oscuro);
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(90deg, var(--azul-oscuro) 70%, var(--azul-brillante) 100%);
+      color: var(--blanco);
+      text-align: center;
+      padding: 2.5rem 1rem 2rem 1rem;
+      position: relative;
+      box-shadow: 0 4px 20px 0 rgba(23,74,126,0.12);
+      animation: fadeInDown 1.2s cubic-bezier(.19,1,.22,1) backwards;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-80px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    .logo {
+      font-size: 2.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 0.7rem;
+      text-shadow: 0 2px 6px rgba(41,134,204,0.14);
+      animation: logoBounce 1.4s cubic-bezier(.19,1,.22,1) 0.3s backwards;
+    }
+    @keyframes logoBounce {
+      0% { transform: scale(0.8);}
+      70% { transform: scale(1.1);}
+      100% { transform: scale(1);}
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.7rem;
+      opacity: 0.9;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--azul-claro);
+      background: var(--azul-medio);
+      padding: 0.5rem 1.3rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      box-shadow: 0 2px 12px 0 rgba(41,134,204,0.08);
+      animation: fadeInUp 1.1s cubic-bezier(.19,1,.22,1) backwards;
+    }
+    nav a:hover {
+      background: var(--azul-brillante);
+      color: var(--azul-oscuro);
+      transform: scale(1.08);
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(48px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      background: var(--blanco);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(41,134,204,0.16);
+      padding: 2.5rem 2rem;
+      animation: fadeIn 1.7s cubic-bezier(.19,1,.22,1) backwards;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.93);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+    .info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
+    .info-text {
+      flex: 1 1 250px;
+    }
+    .info-text h2 {
+      font-weight: 700;
+      color: var(--azul-oscuro);
+      margin: 0 0 1rem 0;
+      font-size: 2rem;
+      position: relative;
+      animation: fadeInLeft 1.2s cubic-bezier(.19,1,.22,1) backwards;
+    }
+    @keyframes fadeInLeft {
+      0% { opacity: 0; transform: translateX(-40px);}
+      100% { opacity: 1; transform: translateX(0);}
+    }
+    .info-text p {
+      font-size: 1.09rem;
+      margin: 0.5rem 0 0 0;
+      color: var(--azul-oscuro);
+      opacity: 0.82;
+    }
+    .contact-card {
+      background: linear-gradient(135deg, var(--azul-medio) 70%, var(--azul-brillante) 100%);
+      color: var(--blanco);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px 0 rgba(41,134,204,0.16);
+      padding: 1.5rem 2rem;
+      min-width: 230px;
+      font-size: 1.04rem;
+      animation: pulseCard 1.4s infinite alternate;
+    }
+    @keyframes pulseCard {
+      0% { box-shadow: 0 2px 12px 0 rgba(41,134,204,0.14);}
+      100% { box-shadow: 0 8px 22px 0 rgba(41,134,204,0.24);}
+    }
+    .contact-card .icon {
+      font-size: 1.6rem;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      color: var(--azul-claro);
+      text-shadow: 0 2px 8px rgba(63,198,255,0.24);
+    }
+    .contact-card strong {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1.09rem;
+    }
+    .gallery {
+      margin: 2.5rem 0 1rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.2rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 14px 0 rgba(41,134,204,0.11);
+      transition: transform 0.32s cubic-bezier(.19,1,.22,1), box-shadow 0.32s;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 8px 24px 0 rgba(41,134,204,0.22);
+    }
+    .cta {
+      text-align: center;
+      margin-top: 2.7rem;
+      animation: fadeInUp 1.4s cubic-bezier(.19,1,.22,1) backwards;
+    }
+    .cta a {
+      display: inline-block;
+      background: var(--azul-brillante);
+      color: var(--blanco);
+      font-weight: bold;
+      padding: 0.8rem 2.5rem;
+      border-radius: 30px;
+      font-size: 1.15rem;
+      text-decoration: none;
+      box-shadow: 0 2px 12px 0 rgba(41,134,204,0.10);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .cta a:hover {
+      background: var(--azul-medio);
+      transform: scale(1.11);
+    }
+    footer {
+      background: var(--azul-oscuro);
+      color: var(--blanco);
+      text-align: center;
+      padding: 1.3rem 0;
+      font-size: 1rem;
+      letter-spacing: 0.8px;
+      margin-top: 3rem;
+      animation: fadeIn 1.7s cubic-bezier(.19,1,.22,1) backwards;
+    }
+    /* Responsive */
+    @media (max-width: 700px) {
+      .container { padding: 1.5rem 0.7rem; }
+      .info { flex-direction: column; gap: 1.3rem; }
+      .contact-card { min-width: unset; padding: 1rem 1.2rem;}
+      .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Ferretería Guadalupe-Cajamarca</div>
+    <div class="subtitle">¡Todo para tu proyecto, con atención personalizada y calidad garantizada!</div>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#galeria">Galería</a>
+    </nav>
+  </header>
+  <main class="container">
+    <section class="info">
+      <div class="info-text">
+        <h2>Tu ferretería de confianza en Cajamarca</h2>
+        <p>En Ferretería Guadalupe-Cajamarca, te ofrecemos variedad en herramientas, materiales para construcción, plomería, electricidad y más, siempre con la mejor atención y precios competitivos. ¡Haz crecer tu proyecto con nosotros!</p>
+      </div>
+      <div class="contact-card" id="contacto">
+        <span class="icon">📞</span> <span>934897137</span>
+        <strong>
+          <span class="icon">📍</span> Av. San Martín N° 2000, Cajamarca
+        </strong>
+      </div>
+    </section>
+    <section id="productos">
+      <h2 style="color:var(--azul-medio);margin-top:2.5rem;animation:fadeInLeft 1.2s cubic-bezier(.19,1,.22,1) backwards;">Nuestros Productos</h2>
+      <p style="margin-bottom:1.2rem;">Herramientas manuales y eléctricas, materiales de construcción, pinturas, plomería, electricidad, ferretería en general y asesoramiento para tu compra.</p>
+      <div class="gallery" id="galeria">
+        <img src="https://images.unsplash.com/photo-1515169273899-7c1dc7d7a7b4?auto=format&fit=crop&w=400&q=80" alt="Herramientas" title="Herramientas">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Materiales de construcción" title="Materiales de construcción">
+        <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?auto=format&fit=crop&w=400&q=80" alt="Pinturas" title="Pinturas">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Ferretería general" title="Ferretería general">
+      </div>
+    </section>
+    <section id="ubicacion">
+      <h2 style="color:var(--azul-medio);margin-top:2.5rem;">¿Dónde estamos?</h2>
+      <p>Visítanos en <strong>Av. San Martín N° 2000, Cajamarca</strong>, a pocos minutos del centro de la ciudad.</p>
+      <iframe
+        src="https://www.google.com/maps?q=Av.+San+Martin+2000+Cajamarca&output=embed"
+        width="100%"
+        height="250"
+        frameborder="0"
+        style="border-radius:12px;box-shadow:0 2px 12px 0 rgba(41,134,204,0.12);margin-top:1rem;"
+        allowfullscreen=""
+        aria-hidden="false"
+        tabindex="0"></iframe>
+    </section>
+    <div class="cta">
+      <a href="tel:934897137">¡Llámanos ahora!</a>
+    </div>
+  </main>
+  <footer>
+    © 2025 Ferretería Guadalupe-Cajamarca &nbsp;|&nbsp; Av. San Martín N° 2000, Cajamarca &nbsp;|&nbsp; Tel: 934897137
+  </footer>
+  <!-- Animación de fondo con SVG ondas azules -->
+  <svg viewBox="0 0 1440 150" style="position:fixed;bottom:0;left:0;width:100%;height:90px;z-index:-1;pointer-events:none;">
+    <path fill="#2986cc" fill-opacity="0.5" d="M0,64L48,80C96,96,192,128,288,144C384,160,480,160,576,144C672,128,768,96,864,90.7C960,85,1056,107,1152,101.3C1248,96,1344,64,1392,48L1440,32L1440,150L1392,150C1344,150,1248,150,1152,150C1056,150,960,150,864,150C768,150,672,150,576,150C480,150,384,150,288,150C192,150,96,150,48,150L0,150Z"></path>
+    <animate
+      xlink:href="#wave"
+      attributeName="d"
+      dur="9s"
+      repeatCount="indefinite"
+      values="
+        M0,64L48,80C96,96,192,128,288,144C384,160,480,160,576,144C672,128,768,96,864,90.7C960,85,1056,107,1152,101.3C1248,96,1344,64,1392,48L1440,32L1440,150L1392,150C1344,150,1248,150,1152,150C1056,150,960,150,864,150C768,150,672,150,576,150C480,150,384,150,288,150C192,150,96,150,48,150L0,150Z;
+        M0,80L48,96C96,112,192,144,288,140C384,136,480,104,576,112C672,120,768,168,864,176C960,184,1056,144,1152,128C1248,112,1344,120,1392,124L1440,128L1440,150L1392,150C1344,150,1248,150,1152,150C1056,150,960,150,864,150C768,150,672,150,576,150C480,150,384,150,288,150C192,150,96,150,48,150L0,150Z;
+        M0,64L48,80C96,96,192,128,288,144C384,160,480,160,576,144C672,128,768,96,864,90.7C960,85,1056,107,1152,101.3C1248,96,1344,64,1392,48L1440,32L1440,150L1392,150C1344,150,1248,150,1152,150C1056,150,960,150,864,150C768,150,672,150,576,150C480,150,384,150,288,150C192,150,96,150,48,150L0,150Z
+      "
+    />
+  </svg>
+</body>
+</html>
